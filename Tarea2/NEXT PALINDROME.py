@@ -1,9 +1,9 @@
-def entero(C):
-    X=0
-    for x in range(0,len(C)):
-        Y=int(C[a]*(10**(len(C)-a-1)))
-        X=X+Y
-    return X
+def vecindad(A,par,n):
+    if A[n+par-1]==10:
+        A[n+par-1]=0
+        A[n+par-2]=int(A[n+par-2])+1
+        vecindad(A,par,n-1)
+    return A
 
 T=input() #casos a analizar
 T=int(T)
@@ -16,33 +16,35 @@ for a in range(0,T):
     else:
         par = B%2
         C=A.copy()
-        if par==0:
-            if C[(B//2)-1]>= C[B//2]:
+        D=C[0:(B//2)]
+        D.reverse()
+        F=''.join(D)
+
+        if par==1:
+            E=C[(B//2)+1:B]
+            G=''.join(E)
+            if F>G:
                 for b in range(0,(B//2)):
                     C[(B-b-1)]=C[b]
-                print(C)
-            else:
-                C[(B//2)-1]= int(C[(B//2)-1])+1
-                for c in range(0,(B//2)):
-                   C[(B-c-1)]=C[c]
-                print(C)
-        if par==1:
-            D=C[0:(B//2)]
-            E=C[(B//2)+1:B]
-            D.reverse()
-            G,I=0,0
-            for d in range(0,len(D)):
-                F=int(D[d]*(10**(len(D)-d-1)))
-                G=G+F
-            for e in range(0,len(E)):
-                H=int(E[e]*(10**(len(E)-e-1)))
-                I=H+I
-            if G>I:
-                for f in range(0,(B//2)):
-                    C[(B-f-1)]=C[f]
-                print(C)
-            elif G<=I:
+                print(''.join(C))
+            elif F<=G:
                 C[B//2]=int(C[B//2])+1
-                for g in range(0,(B//2)):
-                    C[(B-g-1)]=C[g]
-                print(C)
+                vecindad(C,par,(B//2))
+                C=[str(i) for i in C]
+                for c in range(0,(B//2)):
+                    C[(B-c-1)]=C[c]
+                print(''.join(C))
+        if par==0:
+            E=C[(B//2):B]
+            G=''.join(E)
+            if F>G:
+                for d in range(0,(B//2)):
+                    C[(B-d-1)]=C[d]
+                print(''.join(C))
+            elif F<=G:
+                C[(B//2)-1]=int(C[(B//2)-1])+1
+                vecindad(C, par, (B // 2))
+                C = [str(i) for i in C]
+                for e in range(0, (B // 2)):
+                    C[(B-e-1)]=C[e]
+                print(''.join(C))
