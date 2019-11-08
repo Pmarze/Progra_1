@@ -43,6 +43,25 @@ elif R-C!=0:
     G=ceros(Y,D,N)
     H=np.copy(D)                 #copia de D para manipular
     I=cerof(H,D,F,G,N)
+    J=[]
+    K=[]
+    d,e=0,0
     for b in range(N):
         for c in range(N):
-            print('prueba')
+            if I[c][b]>C:
+                d+=1
+        J.append(d)
+        d=0
+    for g in range(N):
+        for f in range(N):
+            if I[g][f]<R:
+                if I[g][f]!=0:
+                    e+=1
+        K.append(e)
+        e=0
+    j=max(J)
+    k=max(K)
+    if j>k:
+        print(k)
+    else:
+        print(j)
