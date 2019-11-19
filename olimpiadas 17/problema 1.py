@@ -37,7 +37,6 @@ def puntos(B):
     a = np.count_nonzero( B =='.')
     return a
 A=[]
-
 T=int(input())
 for a in range(0,T):
     for b in range(4):
@@ -47,16 +46,3 @@ for a in range(0,T):
     D=filas(B)
     E=puntos(B)
     print(C,D,E)
-
-
-
-
-
-
-
-
-
-   # C,D,E=diagonal(B),filas(B),columnas(B)                               #['X' en diagonal \, 'O' en diagonal \,'X' en diagonal /, 'O' en diagonal /]
-  #  print(C)
- #   print(D)
-#    print(E)
