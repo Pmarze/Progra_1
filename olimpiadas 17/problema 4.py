@@ -11,11 +11,9 @@ def corrimiento(C,n):
     for a in range(len(C)):
         D[a-n]=C[a]  # n es el corrimiento de espacios
     return D
-def sumar(D):
-
 A=0
 C=[]
-F=[]
+F=0
 T=int(input())
 for a in range(T):
     R,K,N=map(int, input().strip('\n').split(' '))  #K= capacidad del vagón, R veces repite
@@ -25,7 +23,8 @@ for a in range(T):
     D=C.copy()
     for b in range(R):
         E=suma(D,N)
-        F.append(E[0])
+        F=F+E[0]
         D=corrimiento(D,E[1])
     print(F)
-    E,F,D=[],[],[]
+    F=0
+    E,D=[],[]
