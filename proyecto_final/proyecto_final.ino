@@ -26,15 +26,27 @@ void setup(){
 }
 
 void loop(){
- a=digitalRead(PAM);
- b=digitalRead(PAZ);
- c=digitalRead(PVE);
- d=digitalRead(PRO);
+  a=digitalRead(PAM);
+  b=digitalRead(PAZ);
+  c=digitalRead(PVE);
+  d=digitalRead(PRO);
+  if (a==LOW){
+    amarillo();
+    }
+  if (b==LOW){
+    amarillo();
+    }
+  if (c==LOW){
+    amarillo();
+    }
+  if (d==LOW){
+    amarillo();
+    }        
 }
 
 void amarillo(){
   digitalWrite(AM,HIGH);
-  tone(BUZZ, 250);
+  tone(BUZZ, 4000);
   delay(t);
   noTone(BUZZ);
   digitalWrite(AM,LOW);
@@ -42,7 +54,7 @@ void amarillo(){
 }
 void azul(){
   digitalWrite(AZ,HIGH);
-  tone(BUZZ, 500);
+  tone(BUZZ, 5000);
   delay(t);
   noTone(BUZZ);
   digitalWrite(AZ,LOW);
@@ -50,7 +62,7 @@ void azul(){
 }
 void verde(){
   digitalWrite(VE,HIGH);
-  tone(BUZZ, 750);
+  tone(BUZZ, 6000);
   delay(t);
   noTone(BUZZ);
   digitalWrite(VE,LOW);
@@ -58,7 +70,7 @@ void verde(){
 }
 void rojo(){
   digitalWrite(RO,HIGH);
-  tone(BUZZ, 1000);
+  tone(BUZZ, 7000);
   delay(t);
   noTone(BUZZ);
   digitalWrite(RO,LOW);
