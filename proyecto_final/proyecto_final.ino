@@ -30,6 +30,7 @@ void setup(){
   pinMode(BUZZ,OUTPUT);
   aleatorio();                //GENERAMOS UNA LISTA ALEATORIA INICIAL
   ganar();                    //SECUENCIA DE LEDS INICIAL
+  delay(1000);
 }
 
 void loop(){
@@ -171,11 +172,13 @@ void entrada(){             //FUNCIÓN PARA LEER LOS PUSH BOTTON
 } 
 void ganar(){                   //SECUENCIA DE LEDS SI GANAMOS
   for (int a=0;a<5;a++){
+  tone(BUZZ,3750);
   digitalWrite(AM,HIGH);
   digitalWrite(AZ,HIGH);
   digitalWrite(VE,HIGH);
   digitalWrite(RO,HIGH);
   delay(75);
+  noTone(BUZZ);
   digitalWrite(AM,LOW);
   digitalWrite(AZ,LOW);
   digitalWrite(VE,LOW);
@@ -184,11 +187,13 @@ void ganar(){                   //SECUENCIA DE LEDS SI GANAMOS
 }}
 void perder(){                  //SECUENCIA DE LEDS SI HEMOS PERDIDO
   for (int b=0;b<5;b++){  
+  tone(BUZZ,3750);
   digitalWrite(AM,HIGH);
   digitalWrite(AZ,LOW);
   digitalWrite(VE,LOW);
   digitalWrite(RO,HIGH);
   delay(75);
+  noTone(BUZZ);
   digitalWrite(AM,LOW);
   digitalWrite(AZ,HIGH);
   digitalWrite(VE,HIGH);
