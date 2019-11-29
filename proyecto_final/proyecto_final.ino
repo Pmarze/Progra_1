@@ -37,9 +37,11 @@ void loop(){
   secuencia();
   entrada();  
   
-  if (lose==1);
+  if (lose==1){
     nivel=1;
     aleatorio();
+    lose=0;
+  }
   estado=true; 
 }
 
@@ -106,7 +108,7 @@ void entrada(){
     c=digitalRead(PVE);        //LEER EL ESTADO DE PVE
     d=digitalRead(PRO);        //LEER EL ESTADO DE PRO
       Serial.println(e);
-      if (e==nivel+1){
+      if (e==nivel){
         estado=false;
         
         break;
